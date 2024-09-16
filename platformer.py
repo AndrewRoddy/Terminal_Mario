@@ -10,6 +10,11 @@ import sys
 # Run this program in the atom IDE for the best results. Press f5 to run program :)
 
 
+#####
+# Run the program from the terminal or it wont work!!!
+#####
+
+
 # Used to get the current key the keyboard is pressing
 def get_key(framerate=0.367):
     # Does not allow the framerate under 0.2
