@@ -122,7 +122,7 @@ def player_movement(map, key, x, y):
     # When the d or right key is pressed
     if key == "'d'" or key == "Key.right":
         # If the player can move right
-        if x < (len(map[0]) - 1) and map[y][x + 1] == " ":
+        if x < (len(map[0]) - 1) and (map[y][x + 1] == " " or map[y][x + 1] == "$"):
             # Move rights
             x += 1
 
@@ -352,9 +352,12 @@ def main():
         original_map, y = jump(original_map, key, x, y)
 
         for i in range(len(enemy_list)):
-             y = enemy_list[i].goomba(map, x, y)
+            y = enemy_list[i].goomba(map, x, y)
 
         map[y][x] = "p"
+
+        if(x >= 199):
+            sys.exit(f"\n\nYou Win!! \n\nPress (Enter) to quit\n\n")
 
         # Prints the map
         print_map(map, x, y)
