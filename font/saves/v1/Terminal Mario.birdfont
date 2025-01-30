@@ -50,7 +50,7 @@
 <background scale="1" />
 
 <base_filename>Terminal Mario</base_filename>
-<base_filename_mac>Terminal Mario Mac</base_filename_mac>
+<base_filename_mac>Terminal Mario (Mac)</base_filename_mac>
 <export_ttf_font>true</export_ttf_font>
 <export_otf_font>true</export_otf_font>
 <export_eot_font>false</export_eot_font>
@@ -86,6 +86,12 @@
 			<path data="S -2.08648,32.25944 L 6.37475,31.20179 D 7.50795,30.82406 6.07256,37.54771 10.90755,29.69085 D 7.73459,22.58946 27.22565,17.30119 17.55567,14.7326 D -18.10239,6.87575 -7.48807,16.65905 -15.83598,17.30119 D -15.26938,18.50994 -31.7008,21.07853 -13.56958,22.13618 D 4.56163,23.19384 -4.50398,25.30915 -1.48211,26.3668 D -1.33101,27.53777 -0.27336,29.99304 -0.87773,31.0507 D -1.48211,32.10835 -1.78429,31.95726 -2.08648,32.25944" />
 			<path data="S 3.0507,26.51789 L 8.49006,29.69085 L 3.65507,29.84195 L 3.0507,26.51789" />
 		</layer>
+	</glyph>
+</collection>
+
+<collection unicode="U+20" svg="false" colr="false" auto_generate="false" meta_name="">
+	<selected id="0"/>
+	<glyph id="0" left="0" right="27" zero_width="false">
 	</glyph>
 </collection>
 
