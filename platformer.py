@@ -12,6 +12,8 @@ import sys
 
 #####
 # Run the program from the terminal or it wont work!!!
+#
+# For editing the fonts make sure they are 48 in width to be monospace
 #####
 
 
@@ -300,7 +302,7 @@ class Enemy:
                 game_over(True)
 
             # Change the map variable to the goomba
-            map[math.floor(self.goomba_y)][math.floor(self.goomba_x)] = "G"
+            map[math.floor(self.goomba_y)][math.floor(self.goomba_x)] = "g"
 
         return py
 
