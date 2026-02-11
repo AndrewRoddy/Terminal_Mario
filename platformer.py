@@ -1,6 +1,5 @@
 from pynput import keyboard
 import time
-import re
 import csv
 from copy import deepcopy
 import random
@@ -31,8 +30,17 @@ def get_key(framerate=0.367):
         # Gets the key currently being pressed
         event = events.get(0.2)
 
-        # Returns the key currently being pressed
-        return event
+        # Return None if no key pressed or not a Press event
+        if event is None or not isinstance(event, keyboard.Events.Press):
+            return None
+
+        # Convert the key to the string format the rest of the code expects
+        key = event.key
+        if isinstance(key, keyboard.Key):
+            return f"Key.{key.name}"
+        elif isinstance(key, keyboard.KeyCode) and key.char is not None:
+            return f"'{key.char}'"
+        return None
 
 
 # Used to get the csv file that the map is contained in as a list
@@ -155,7 +163,7 @@ def player_movement(map, key, x, y):
 # Used to allow the player to jump
 def jump(map, key, x, y):
     # If the space key or up key is pressed
-    if key == "Key.space" or key == "Key.up":
+    if key == "Key.space" or key == "Key.up" or key == "'w'":
         # Try make sure the index exists
         try:
             # If the tile below the player is not air
@@ -341,11 +349,10 @@ def main():
 
         # The get_key parameter sets the framerate of the game
         user_input = get_key(0.367)
-        if user_input == None:
+        if user_input is None:
             key = "_"
         else:
-            if grouper := re.search(r"key=(.+)\)", str(user_input)):
-                key = grouper.group(1)
+            key = user_input
 
         # Allows the Player to Move
         x, y = player_movement(map, key, x, y)
