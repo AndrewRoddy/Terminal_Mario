@@ -8,14 +8,6 @@ import sys
 
 # Run this program in the atom IDE for the best results. Press f5 to run program :)
 
-
-#####
-# Run the program from the terminal or it wont work!!!
-#
-# For editing the fonts make sure they are 48 in width to be monospace
-#####
-
-
 # Used to get the current key the keyboard is pressing
 def get_key(framerate=0.367):
     # Does not allow the framerate under 0.2
@@ -363,7 +355,7 @@ def main():
         for i in range(len(enemy_list)):
             y = enemy_list[i].goomba(map, x, y)
 
-        map[y][x] = "p"
+        map[y][x] = "m"
 
         if(x >= 199):
             sys.exit(f"\n\nYou Win!! \n\nPress (Enter) to quit\n\n")
