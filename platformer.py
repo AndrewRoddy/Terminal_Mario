@@ -101,22 +101,17 @@ def print_map(map, x, y):
         l_x = 0
     r_x = l_x + 30
 
-    # Prints the top horizontal lines
-    print(" ", end=" ")
-    for _ in range(l_x, r_x):
-        print("_", end=" ")
-    print(" ")
+    # Build the entire frame as a single string to avoid flicker
+    lines = ["\n"]
 
-    # Prints the left vertical bars
+    # Top horizontal lines
+    lines.append("  " + "_ " * (r_x - l_x) + " ")
+
+    # Map rows
     for i in range(len(map)):
-        print("|", end="")
+        lines.append("|" + " ".join(map[i][j] for j in range(l_x, r_x)) + " |")
 
-        # Prints the variables
-        for j in range(l_x, r_x):
-            print(map[i][j], end=" ")
-
-        # Prints the right vertical lines
-        print("|")
+    print("\n".join(lines))
 
 
 # Used to allow the player to move left and right
@@ -335,6 +330,9 @@ def main():
     # Runs the frames of the game
     original_map = get_map(1)
 
+    # Clear terminal
+    print("\x1b[2J\x1b[H")    
+
     while game_over() == False:
         # Creates a copy of the map that can be easily edited
         map = deepcopy(original_map)
@@ -361,6 +359,7 @@ def main():
             sys.exit(f"\n\nYou Win!! \n\nPress (Enter) to quit\n\n")
 
         # Prints the map
+        sys.stdout.write("\x1b[H")
         print_map(map, x, y)
         print("Score: " + str(score))
     sys.exit(f"\n\nGame Over \n\nPress (Enter) to quit\n\n")
